@@ -1,0 +1,28 @@
+{
+  "name": "kazihub-pro",
+  "version": "1.0.0",
+  "description": "Professional service marketplace for Uganda",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:api\" \"npm run dev:web\"",
+    "dev:api": "cd packages/api && npm run dev",
+    "dev:web": "cd packages/web && npm run dev",
+    "build": "npm run build:api && npm run build:web",
+    "build:api": "cd packages/api && npm run build",
+    "build:web": "cd packages/web && npm run build",
+    "typecheck": "npm run typecheck:api && npm run typecheck:web",
+    "typecheck:api": "cd packages/api && npm run typecheck",
+    "typecheck:web": "cd packages/web && npm run typecheck",
+    "start": "npm run build && concurrently \"npm run start:api\" \"npm run start:web\"",
+    "start:api": "cd packages/api && npm run start",
+    "start:web": "cd packages/web && npm run start"
+  },
+  "workspaces": [
+    "packages/api",
+    "packages/web",
+    "packages/shared"
+  ],
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  }
+}
